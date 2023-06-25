@@ -6,7 +6,8 @@ module.exports = {
     extend: {
       colors: {
         "primary": "#1B252F",
-        "secondary": "#F2F0E4"
+        "secondary": "#F2F0E4",
+        "mobilemenutab": "#20438E"
       }
     },
   },
