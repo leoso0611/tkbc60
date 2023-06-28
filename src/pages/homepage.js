@@ -1,5 +1,5 @@
 function Homepage() {
-  return (<footer className="h-[100rem]">Homepage</footer>)
+  return (<footer>Homepage</footer>)
 }
 
 export default Homepage;
