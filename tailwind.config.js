@@ -1,20 +1,24 @@
 module.exports = {
-  content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
-  ],
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
       fontFamily: {
         'noto': ['"Noto Sans TC"', 'sans-serif']
       },
       colors: {
-        "primary": "#1B252F",
-        "secondary": "#F2F0E4",
-        "primaryBackground": "#FAF8F1",
-        "mobilemenutab": "#20438E",
-        "copyrighttext": "#174092"
-      }
+        primary: "#1B252F",
+        secondary: "#F2F0E4",
+        primaryBackground: "#FAF8F1",
+        mobilemenutab: "#20438E",
+        copyrighttext: "#174092"
+        wire: "#918D7B",
+        photo: "#061c47",
+        diy: "#F2434C",
+        drawing: "#F2DA08",
+        calligraphy: "#B2D81F",
+        sound: "#333132",
+      },
     },
   },
   plugins: [],
-}
+};

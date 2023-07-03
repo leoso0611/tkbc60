@@ -38,7 +38,7 @@ function Navbar() {
 
   const mobileMenu = () =>
     menuTab ? (
-      <div className="block md:hidden fixed top-20 left-0 h-[calc(100%-5rem)] z-50 bg-mobilemenutab w-screen">
+      <div className="block md:hidden fixed top-20 left-0 h-[calc(100%-5rem)] bg-mobilemenutab w-screen z-50">
         <div className="font-semibold pt-12 flex flex-col gap-8 items-center">
           <Link to="/about">
             <div className={mobilelinkclassName} onClick={handleMenuTabOnClick}>
@@ -60,7 +60,7 @@ function Navbar() {
     ) : null;
 
   return (
-    <nav className="bg-primary border-gray-200 h-20 sticky top-0">
+    <nav className="bg-primary border-gray-200 h-20 sticky top-0 z-40">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Link to="/">
           <img src={logo} alt="logo" className="h-12 mr-3" />
