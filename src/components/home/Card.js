@@ -3,6 +3,7 @@ import React from "react";
 import Clip from "../../images/icon/web_clip.svg";
 import soundIcon from "../../images/icon/sound.svg";
 import { motion } from "framer-motion";
+import CardBriefInfo from "./CardBriefInfo";
 
 const getTypeColour = (type) => {
   let typeColour = "";
@@ -35,10 +36,15 @@ const Card = ({ type, photo, icon, iconSize, onClickFn }) => {
         Math.random() < 0.5 ? "rotate-12" : "-rotate-12"
       }`}
       // onClick={onClickFn}
+
       onClick={() => onClickFn && onClickFn()}
       initial={{ y: -2000 }}
       animate={{ y: 0, rotate: Math.random() < 0.5 ? 348 : 372 }}
-      transition={{ type: "spring", duration: 1.2 }}
+      transition={{ type: "spring", duration: 1.5 }}
+      whileHover={{
+        scale: 1.2,
+        transition: { duration: 0.1 },
+      }}
     >
       <div
         className={`mt-4 w-[80px] h-[80px] ${
