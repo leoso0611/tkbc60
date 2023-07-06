@@ -1,5 +1,5 @@
 import Home_bg from "../images/home_bg.png";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Card from "components/home/Card";
 import { cardData } from "assets/data/cardData";
 import refreshIcon from "../images/icon/refresh.svg";
@@ -13,7 +13,9 @@ function Wire(props) {
         <div className="h-scree w-[7px] bg-wire shadow-2xl"></div>
       </div>
 
-      <div className="grid grid-rows-8 absolute gap-5">{props.children}</div>
+      <div className="grid grid-rows-8 absolute gap-5 mt-10 lg:mt-2 2xl:mt-14">
+        {props.children}
+      </div>
     </div>
   );
 }
@@ -51,11 +53,10 @@ function Homepage() {
         className={`absolute top-0  h-full w-screen z-[-3] overflow-hidden object-cover`}
       />
       {/* <Card type="diy" />
-
       <Card type="calligraphy" />
       <Card type="sound" />
       <Card type="drawing" /> */}
-      <div className="h-full grid grid-cols-4 lg:grid-cols-10 z-[-2] justify-evenly w-full lg:w-4/6  mx-auto">
+      <div className="h-full grid grid-cols-4 lg:grid-cols-10 z-[-2] justify-evenly w-full lg:w-4/6 mx-auto">
         {matrix.map((items, cols) => {
           if (window.innerWidth < 1000 && cols > colNum) {
             return undefined;
@@ -63,25 +64,27 @@ function Homepage() {
           return (
             <div key={cols}>
               <Wire>
-                {items.map((box, rows) => {
-                  if (cols === 0 && rows === 4) {
+                <div className={`${cols % 2 === 0 ? "mt-12" : ""}`}>
+                  {items.map((box, rows) => {
+                    if (cols === 0 && rows === 4) {
+                      return (
+                        <div key={rows} className="h-[100px] w-[100px]">
+                          <Card
+                            type="refresh"
+                            icon={refreshIcon}
+                            iconSize={30}
+                            onClickFn={handleFresh}
+                          />
+                        </div>
+                      );
+                    }
                     return (
-                      <div className="h-[100px] w-[100px]">
-                        <Card
-                          type="refresh"
-                          icon={refreshIcon}
-                          iconSize={30}
-                          onClickFn={handleFresh}
-                        />
+                      <div key={rows} className="h-[100px] w-[100px]">
+                        {box && <Card type={box.type} photo={box.image} />}
                       </div>
                     );
-                  }
-                  return (
-                    <div key={rows} className="h-[100px] w-[100px]">
-                      {box && <Card type={box.type} photo={box.image} />}
-                    </div>
-                  );
-                })}
+                  })}
+                </div>
               </Wire>
             </div>
           );
