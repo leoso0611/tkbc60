@@ -3,7 +3,6 @@ import React from "react";
 import Clip from "../../images/icon/web_clip.svg";
 import soundIcon from "../../images/icon/sound.svg";
 import { motion } from "framer-motion";
-import CardBriefInfo from "./CardBriefInfo";
 
 const getTypeColour = (type) => {
   let typeColour = "";

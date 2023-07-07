@@ -13,6 +13,9 @@ module.exports = {
         calligraphy: "#B2D81F",
         sound: "#333132",
       },
+      rotate: {
+        360: "360deg",
+      },
     },
   },
   plugins: [],
