@@ -4,6 +4,7 @@ import Card from "components/home/Card";
 import { cardData } from "assets/data/cardData";
 import refreshIcon from "../images/icon/refresh.svg";
 import _ from "lodash";
+import { motion } from "framer-motion";
 
 function Wire(props) {
   return (
@@ -45,6 +46,8 @@ function Homepage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  let a = [50, 40, 30, 20, 10, 0];
+
   return (
     <div className="relative overflow-hidden ">
       <img
@@ -56,13 +59,13 @@ function Homepage() {
       <Card type="calligraphy" />
       <Card type="sound" />
       <Card type="drawing" /> */}
-      <div className="h-full grid grid-cols-4 lg:grid-cols-10 z-[-2] justify-evenly w-full lg:w-4/6 mx-auto">
+      <div className="h-full grid grid-cols-4 lg:grid-cols-10 justify-evenly w-full lg:w-4/6 mx-auto">
         {matrix.map((items, cols) => {
           if (window.innerWidth < 1000 && cols > colNum) {
             return undefined;
           }
           return (
-            <div key={cols}>
+            <div key={cols} className={`z-${50 - cols * 10}`}>
               <Wire>
                 <div className={`${cols % 2 === 0 ? "mt-12" : ""}`}>
                   {items.map((box, rows) => {
@@ -79,8 +82,32 @@ function Homepage() {
                       );
                     }
                     return (
-                      <div key={rows} className="h-[100px] w-[100px]">
-                        {box && <Card type={box.type} photo={box.image} />}
+                      <div
+                        key={rows}
+                        className="group h-[100px] w-[100px] relative"
+                      >
+                        {box && (
+                          <div
+                            style={{
+                              direction: "ltr",
+                            }}
+                          >
+                            <motion.div
+                              className="absolute invisible group-hover:visible group-hover:rotate-360 group-hover: !z-50 bg-secondary p-2 top-0 h-[50px] bottom-0 rounded-lg"
+                              initial={{ width: 0 }}
+                              animate={{
+                                width: 300,
+                              }}
+                              transition={{ type: "spring", duration: 1.5 }}
+                            >
+                              <div>
+                                <h2>{box.type}</h2>
+                                <h2>{box.name}</h2>
+                              </div>
+                            </motion.div>
+                            <Card type={box.type} photo={box.image} />
+                          </div>
+                        )}
                       </div>
                     );
                   })}
