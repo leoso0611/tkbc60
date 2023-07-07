@@ -3,7 +3,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'noto': ['"Noto Sans TC"', 'sans-serif']
+        noto: ['"Noto Sans TC"', "sans-serif"],
       },
       colors: {
         primary: "#1B252F",
