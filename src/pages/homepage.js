@@ -14,7 +14,7 @@ function Wire(props) {
         <div className="h-scree w-[7px] bg-wire shadow-2xl"></div>
       </div>
 
-      <div className="grid grid-rows-8 absolute gap-5 mt-10 lg:mt-2 2xl:mt-14">
+      <div className="grid grid-rows-8 absolute gap-5 mt-10 lg:mt-2 2xl:mt-14 ">
         {props.children}
       </div>
     </div>
@@ -46,7 +46,18 @@ function Homepage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  let a = [50, 40, 30, 20, 10, 0];
+  let a = [
+    "z-[10]",
+    "z-[9]",
+    "z-[8]",
+    "z-[7]",
+    "z-[6]",
+    "z-[5]",
+    "z-[4]",
+    "z-[3]",
+    "z-[2]",
+    "z-[1]",
+  ];
 
   return (
     <div className="relative overflow-hidden ">
@@ -65,7 +76,7 @@ function Homepage() {
             return undefined;
           }
           return (
-            <div key={cols} className={`z-${50 - cols * 10}`}>
+            <div key={cols} className={`${a[cols]}`}>
               <Wire>
                 <div className={`${cols % 2 === 0 ? "mt-12" : ""}`}>
                   {items.map((box, rows) => {
