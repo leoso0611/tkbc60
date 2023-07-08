@@ -1,10 +1,11 @@
 import PropTypes from "prop-types";
 import Close from "images/icon/close.svg";
 import Clip from "images/icon/yellow_clip.png";
+import Player from "./player";
 
 import { returnTitle } from "helpers/showcaseTypeHelper";
 
-function Showcase({ item, setOpen, typeTitle }) {
+function Showcase({ item, setOpen, open }) {
   const { author_name, description, source, type } = item;
   const handleModalClose = () => {
     setOpen(false);
@@ -25,7 +26,7 @@ function Showcase({ item, setOpen, typeTitle }) {
               alt="show"
               className="h-full object-contain"
             />
-          ) : null}
+          ) : <Player item={item} open={open}/>}
         </div>
 
         <div className="md:flex-1 md:px-6 md:py-10 px-0 py-0 md:mt-0 mt-6 md:flex md:flex-col md:justify-start md:justify-center">
@@ -51,6 +52,7 @@ function Showcase({ item, setOpen, typeTitle }) {
 Showcase.propTypes = {
   item: PropTypes.object,
   setOpen: PropTypes.func,
+  open: PropTypes.bool
 };
 
 export default Showcase;

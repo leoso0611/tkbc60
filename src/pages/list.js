@@ -11,11 +11,11 @@ import { workdata } from "assets/workData/data";
 function List() {
   const [open, setOpen] = useState(false);
   const [openedItem, setOpenedItem] = useState({});
-  function compare( a, b ) {
-    if ( a.type < b.type ){
+  function compare(a, b) {
+    if (a.type < b.type) {
       return -1;
     }
-    if ( a.type > b.type ){
+    if (a.type > b.type) {
       return 1;
     }
     return 0;
@@ -50,12 +50,16 @@ function List() {
   };
 
   const handleBack = () => {
-    let previousIndex = sortedData.findIndex((item) => item.id === openedItem.id);
+    let previousIndex = sortedData.findIndex(
+      (item) => item.id === openedItem.id
+    );
     setOpenedItem(sortedData[previousIndex - 1]);
   };
 
   const handleNext = () => {
-    let previousIndex = sortedData.findIndex((item) => item.id === openedItem.id);
+    let previousIndex = sortedData.findIndex(
+      (item) => item.id === openedItem.id
+    );
     setOpenedItem(sortedData[previousIndex + 1]);
   };
 
@@ -81,7 +85,7 @@ function List() {
         handleBack={handleBack}
         handleNext={handleNext}
       >
-        <Showcase item={openedItem} setOpen={setOpen} />
+        <Showcase item={openedItem} open={open} setOpen={setOpen} />
       </Modal>
     </div>
   );
