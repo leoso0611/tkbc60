@@ -10,7 +10,7 @@ module.exports = {
         secondary: "#F2F0E4",
         primaryBackground: "#FAF8F1",
         mobilemenutab: "#20438E",
-        copyrighttext: "#174092"
+        copyrighttext: "#174092",
         wire: "#918D7B",
         photo: "#061c47",
         diy: "#F2434C",
@@ -18,7 +18,15 @@ module.exports = {
         calligraphy: "#B2D81F",
         sound: "#333132",
       },
+      rotate: {
+        360: "360deg",
+      },
+      gridTemplateColumns: {
+        "list": "repeat(auto-fill, minmax(150px, 1fr));",
+        "mobile_list": "repeat(auto-fill, minmax(100px, 1fr));"
+      }
     },
+    
   },
   plugins: [],
 };
