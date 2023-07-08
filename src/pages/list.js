@@ -11,6 +11,16 @@ import { workdata } from "assets/workData/data";
 function List() {
   const [open, setOpen] = useState(false);
   const [openedItem, setOpenedItem] = useState({});
+  function compare(a, b) {
+    if (a.type < b.type) {
+      return -1;
+    }
+    if (a.type > b.type) {
+      return 1;
+    }
+    return 0;
+  }
+  const sortedData = workdata.sort(compare);
 
   const returnBoxes = (data) => {
     let currentType = "";
@@ -40,13 +50,17 @@ function List() {
   };
 
   const handleBack = () => {
-    let previousIndex = workdata.findIndex((item) => item.id === openedItem.id);
-    setOpenedItem(workdata[previousIndex - 1]);
+    let previousIndex = sortedData.findIndex(
+      (item) => item.id === openedItem.id
+    );
+    setOpenedItem(sortedData[previousIndex - 1]);
   };
 
   const handleNext = () => {
-    let previousIndex = workdata.findIndex((item) => item.id === openedItem.id);
-    setOpenedItem(workdata[previousIndex + 1]);
+    let previousIndex = sortedData.findIndex(
+      (item) => item.id === openedItem.id
+    );
+    setOpenedItem(sortedData[previousIndex + 1]);
   };
 
   return (
@@ -54,7 +68,7 @@ function List() {
       <div className="max-w-screen-xl mx-auto px-6 py-12 md:px-4 md:py-10">
         <Pagetitle title="作品集" />
         <div className="grid grid-cols-mobile_list md:grid-cols-list gap-y-3">
-          {returnBoxes(workdata)}
+          {returnBoxes(sortedData)}
         </div>
       </div>
       <Modal
@@ -62,16 +76,16 @@ function List() {
         setOpen={setOpen}
         withCarousell={true}
         ableToBack={
-          workdata.findIndex((item) => item.id === openedItem.id) !== 0
+          sortedData.findIndex((item) => item.id === openedItem.id) !== 0
         }
         ableToNext={
-          workdata.findIndex((item) => item.id === openedItem.id) !==
-          workdata.length - 1
+          sortedData.findIndex((item) => item.id === openedItem.id) !==
+          sortedData.length - 1
         }
         handleBack={handleBack}
         handleNext={handleNext}
       >
-        <Showcase item={openedItem} setOpen={setOpen} />
+        <Showcase item={openedItem} open={open} setOpen={setOpen} />
       </Modal>
     </div>
   );

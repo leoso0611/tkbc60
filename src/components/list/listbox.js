@@ -6,14 +6,13 @@ import { returnTitle, returnFontColor } from "helpers/showcaseTypeHelper";
 
 function Listbox({ isStart = false, item, setOpen, setOpenedItem }) {
   const { name, source, type } = item;
-
   const handleModalOpen = () => {
     setOpenedItem(item);
     setOpen(true);
   };
   return isStart ? (
     <div
-      className={`w-[90px] h-[90px] md:w-[142px] md:h-[142px] flex justify-center items-center bg-${type} text-xl ${returnFontColor()} font-semibold`}
+      className={`w-[90px] h-[90px] md:w-[142px] md:h-[142px] flex justify-center items-center bg-${type} text-xl ${returnFontColor(type)} font-semibold`}
     >
       {returnTitle(type)}
     </div>
