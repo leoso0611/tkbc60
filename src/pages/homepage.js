@@ -1,5 +1,7 @@
 import Home_bg from "../images/home_bg.png";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, 
+  // useRef, 
+  useState } from "react";
 import Card from "components/home/Card";
 import { cardData } from "assets/data/cardData";
 import refreshIcon from "../images/icon/refresh.svg";
