@@ -1,12 +1,9 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
 import soundIcon from "images/icon/sound.svg";
-import Modal from "components/modal";
 
 import { motion } from "framer-motion";
 
-function Listbox({ isStart = false, item }) {
-  const [open, setOpen] = useState(false);
+function Listbox({ isStart = false, item, setOpen, setOpenedItem }) {
   const { name, source, type } = item;
   const returnTitle = () => {
     switch (type) {
@@ -36,6 +33,7 @@ function Listbox({ isStart = false, item }) {
   };
 
   const handleModalOpen = () => {
+    setOpenedItem(item);
     setOpen(true);
   };
   return isStart ? (
@@ -62,7 +60,6 @@ function Listbox({ isStart = false, item }) {
           <img src={source} className="h-full w-full object-cover" alt="img" />
         </div>
       )}
-      <Modal open={open} setOpen={setOpen} />
     </motion.div>
   );
 }
@@ -70,6 +67,8 @@ function Listbox({ isStart = false, item }) {
 Listbox.propTypes = {
   isStart: PropTypes.bool,
   item: PropTypes.object,
+  setOpen: PropTypes.func,
+  setOpenedItem: PropTypes.func,
 };
 
 export default Listbox;

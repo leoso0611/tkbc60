@@ -12,6 +12,7 @@ module.exports = {
         mobilemenutab: "#20438E",
         copyrighttext: "#174092",
         wire: "#918D7B",
+        disabled: "#918D7B",
         photo: "#061c47",
         diy: "#F2434C",
         drawing: "#F2DA08",
