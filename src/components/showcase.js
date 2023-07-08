@@ -1,7 +1,10 @@
 import PropTypes from "prop-types";
 import Close from "images/icon/close.svg";
 
-function Showcase({ item, setOpen }) {
+import { returnTitle } from "helpers/showcaseTypeHelper";
+
+function Showcase({ item, setOpen, typeTitle }) {
+  const { author_name, description, source, type } = item;
   const handleModalClose = () => {
     setOpen(false);
   };
@@ -15,10 +18,28 @@ function Showcase({ item, setOpen }) {
           <img src={Close} alt="close" className="w-6 h-6" />
         </button>
       </div>
-      <div>{item.author_name}</div>
-      <div className="flex md:flex-row flex-col">
-        <div className="md:flex-[2]">2</div>
-        <div className="md:flex-1">1</div>
+      <div className="flex md:flex-row flex-col h-[90%]">
+        <div className="md:flex-[2]">
+          {item.type !== "sound" ? (
+            <img
+              src={source}
+              alt="show"
+              className="h-full object-contain object-left-top"
+            />
+          ) : null}
+        </div>
+        <div className="md:flex-1 px-6 py-10">
+          <div>{returnTitle(type)}</div>
+          <div>{author_name}</div>
+          <div>
+            作品概念
+            <div>
+              {description.split("\n").map((str) => (
+                <div>{str}</div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
