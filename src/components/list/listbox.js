@@ -1,9 +1,12 @@
 import PropTypes from "prop-types";
+import { useState } from "react";
 import soundIcon from "images/icon/sound.svg";
+import Modal from "components/modal";
 
 import { motion } from "framer-motion";
 
 function Listbox({ isStart = false, item }) {
+  const [open, setOpen] = useState(false);
   const { name, source, type } = item;
   const returnTitle = () => {
     switch (type) {
@@ -31,26 +34,35 @@ function Listbox({ isStart = false, item }) {
         return "text-black";
     }
   };
-  return (
-    <motion.div
-      whileHover={{ scale: 1.2 }}
+
+  const handleModalOpen = () => {
+    setOpen(true);
+  };
+  return isStart ? (
+    <div
+      className={`w-[90px] h-[90px] md:w-[142px] md:h-[142px] flex justify-center items-center bg-${type} text-xl ${returnFontColor()} font-semibold`}
     >
-      {isStart ? (
+      {returnTitle(type)}
+    </div>
+  ) : (
+    <motion.div whileHover={{ scale: 1.2 }}>
+      {type === "sound" ? (
         <div
-          className={`w-[90px] h-[90px] md:w-[142px] md:h-[142px] flex justify-center items-center bg-${type} text-xl ${returnFontColor()} font-semibold cursor-pointer`}
+          className="w-[90px] h-[90px] md:w-[142px] md:h-[142px] bg-sound flex flex-col justify-center items-center font-semibold cursor-pointer"
+          onClick={handleModalOpen}
         >
-          {returnTitle(type)}
-        </div>
-      ) : type === "sound" ? (
-        <div className="w-[90px] h-[90px] md:w-[142px] md:h-[142px] bg-sound flex flex-col justify-center items-center font-semibold cursor-pointer">
           <img src={soundIcon} alt="img" />
           <div className="text-white">{name}</div>
         </div>
       ) : (
-        <div className="w-[90px] h-[90px] md:w-[142px] md:h-[142px] font-semibold cursor-pointer">
+        <div
+          className="w-[90px] h-[90px] md:w-[142px] md:h-[142px] font-semibold cursor-pointer"
+          onClick={handleModalOpen}
+        >
           <img src={source} className="h-full w-full object-cover" alt="img" />
         </div>
       )}
+      <Modal open={open} setOpen={setOpen} />
     </motion.div>
   );
 }
