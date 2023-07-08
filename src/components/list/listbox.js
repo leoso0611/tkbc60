@@ -6,7 +6,6 @@ import { returnTitle, returnFontColor } from "helpers/showcaseTypeHelper";
 
 function Listbox({ isStart = false, item, setOpen, setOpenedItem }) {
   const { name, source, type } = item;
-
   const handleModalOpen = () => {
     setOpenedItem(item);
     setOpen(true);
