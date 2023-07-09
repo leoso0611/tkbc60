@@ -50,7 +50,7 @@ const Card = ({ type, author_name, photo, icon, iconSize, onClickFn }) => {
       animate={{ y: 0, rotate: Math.random() < 0.5 ? 348 : 372 }}
       transition={{ type: "spring", duration: 1.5 }}
       whileHover={{
-        scale: 1.2,
+        scale: 1.1,
         transition: { duration: 0.1 },
       }}
     >
@@ -61,7 +61,7 @@ const Card = ({ type, author_name, photo, icon, iconSize, onClickFn }) => {
       >
         <>
           <div
-            className={`absolute  w-[80px] h-[80px] rounded-2xl opacity-70 ${getTypeColour(
+            className={`absolute  w-[80px] h-[80px] rounded-2xl opacity-30 ${getTypeColour(
               type
             )}`}
           />

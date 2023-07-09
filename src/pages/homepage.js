@@ -1,7 +1,7 @@
 import Home_bg from "../images/home_bg.png";
 import { useEffect, useState } from "react";
 import Card from "components/home/Card";
-import { cardData } from "assets/data/cardData";
+import { workdata } from "assets/workData/data";
 import refreshIcon from "../images/icon/refresh.svg";
 import _ from "lodash";
 import { motion } from "framer-motion";
@@ -63,7 +63,7 @@ function Homepage() {
       Array.from({ length: 6 }, () => undefined)
     );
 
-    let newCardData = _.shuffle(cardData);
+    let newCardData = _.shuffle(workdata);
     for (let i = 1; i <= colNum; i++) {
       let tempRowNum = _.random(0, rowNum);
 
