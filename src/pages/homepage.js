@@ -19,7 +19,7 @@ function Wire(props) {
         <div className="h-scree w-[7px] bg-wire shadow-2xl"></div>
       </div>
 
-      <div className="grid grid-rows-8 absolute gap-5 mt-12 lg:mt-2 2xl:mt-14 ">
+      <div className="grid grid-rows-8 absolute gap-5 mt-4 md:mt-24">
         {props.children}
       </div>
     </div>
@@ -140,7 +140,7 @@ function Homepage() {
                     {items.map((box, rows) => {
                       if (cols === 0 && rows === 4) {
                         return (
-                          <div key={rows} className="h-[100px] w-[100px]">
+                          <div key={rows} className="h-[100px] w-[100px] mb-3">
                             <Card
                               type="refresh"
                               icon={refreshIcon}
@@ -153,7 +153,7 @@ function Homepage() {
                       return (
                         <div
                           key={rows}
-                          className="group h-[100px] w-[100px] relative"
+                          className="group h-[100px] w-[100px] relative mb-6"
                         >
                           {box && (
                             <Container
@@ -168,7 +168,7 @@ function Homepage() {
                                   box.author_name
                                     ? "group-hover:visible"
                                     : "group-hover:invisible"
-                                } group-hover:visible z-0 bg-secondary  h-[50px] rounded-xl mt-5 ml-10 py-10 pl-12 drop-shadow-2xl  flex justify-start items-center `}
+                                } group-hover:visible z-0 bg-secondary  h-[50px] rounded-xl mt-5 ml-10 py-10 pl-12 drop-shadow-2xl flex justify-start items-center `}
                                 variants={textMotion}
                               >
                                 <div className="text-xl ">

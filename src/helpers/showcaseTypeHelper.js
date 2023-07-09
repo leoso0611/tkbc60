@@ -25,3 +25,7 @@ export const returnFontColor = (type) => {
       return "text-black";
   }
 };
+
+export const returnHoverBackgroundColor = (type) => {
+  return ("hover:bg-" + type).toString();
+};

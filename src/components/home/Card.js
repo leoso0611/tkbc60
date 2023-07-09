@@ -75,7 +75,7 @@ const Card = ({ type, author_name, photo, icon, iconSize, onClickFn }) => {
       >
         <>
           <div
-            className={`absolute  w-[80px] h-[80px] rounded-2xl opacity-50 ${getTypeColour(
+            className={`absolute  w-[80px] h-[80px] rounded-2xl mix-blend-multiply opacity-90 ${getTypeColour(
               type
             )}`}
           />
