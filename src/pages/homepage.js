@@ -1,4 +1,4 @@
-import Home_bg from "../images/home_bg.png";
+import Home_bg from "../images/home_bg.jpeg";
 import { useEffect, useState } from "react";
 import Card from "components/home/Card";
 import { workdata } from "assets/workData/data";
@@ -126,7 +126,7 @@ function Homepage() {
         <img
           src={Home_bg}
           alt="logo"
-          className={`absolute top-0  h-full w-screen z-[-3] overflow-hidden object-cover`}
+          className={`absolute top-0  h-full w-screen z-[-3] overflow-hidden object-cover blur-sm`}
         />
         <div className="h-full grid grid-cols-4 lg:grid-cols-10 justify-evenly w-full lg:w-4/6 mx-auto">
           {matrix.map((items, cols) => {
