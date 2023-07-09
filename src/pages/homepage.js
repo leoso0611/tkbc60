@@ -1,7 +1,7 @@
-import Home_bg from "../images/home_bg.png";
+import Home_bg from "../images/home_bg.jpeg";
 import { useEffect, useState } from "react";
 import Card from "components/home/Card";
-import { cardData } from "assets/data/cardData";
+import { workdata } from "assets/workData/data";
 import refreshIcon from "../images/icon/refresh.svg";
 import _ from "lodash";
 import { motion } from "framer-motion";
@@ -19,7 +19,7 @@ function Wire(props) {
         <div className="h-scree w-[7px] bg-wire shadow-2xl"></div>
       </div>
 
-      <div className="grid grid-rows-8 absolute gap-5 mt-12 lg:mt-2 2xl:mt-14 ">
+      <div className="grid grid-rows-8 absolute gap-5 mt-4 md:mt-24">
         {props.children}
       </div>
     </div>
@@ -63,7 +63,7 @@ function Homepage() {
       Array.from({ length: 6 }, () => undefined)
     );
 
-    let newCardData = _.shuffle(cardData);
+    let newCardData = _.shuffle(workdata);
     for (let i = 1; i <= colNum; i++) {
       let tempRowNum = _.random(0, rowNum);
 
@@ -98,6 +98,10 @@ function Homepage() {
     setMatrix(temp);
   }
 
+  const handleReload = () => {
+    window.location.reload(false);
+  };
+
   useEffect(() => {
     handleFresh();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -122,7 +126,7 @@ function Homepage() {
         <img
           src={Home_bg}
           alt="logo"
-          className={`absolute top-0  h-full w-screen z-[-3] overflow-hidden object-cover`}
+          className={`absolute top-0  h-full w-screen z-[-3] overflow-hidden object-cover blur-sm`}
         />
         <div className="h-full grid grid-cols-4 lg:grid-cols-10 justify-evenly w-full lg:w-4/6 mx-auto">
           {matrix.map((items, cols) => {
@@ -136,12 +140,12 @@ function Homepage() {
                     {items.map((box, rows) => {
                       if (cols === 0 && rows === 4) {
                         return (
-                          <div key={rows} className="h-[100px] w-[100px]">
+                          <div key={rows} className="h-[100px] w-[100px] mb-3">
                             <Card
                               type="refresh"
                               icon={refreshIcon}
                               iconSize={30}
-                              onClickFn={handleFresh}
+                              onClickFn={handleReload}
                             />
                           </div>
                         );
@@ -149,7 +153,7 @@ function Homepage() {
                       return (
                         <div
                           key={rows}
-                          className="group h-[100px] w-[100px] relative"
+                          className="group h-[100px] w-[100px] relative mb-6"
                         >
                           {box && (
                             <Container
@@ -164,7 +168,7 @@ function Homepage() {
                                   box.author_name
                                     ? "group-hover:visible"
                                     : "group-hover:invisible"
-                                } group-hover:visible z-0 bg-secondary  h-[50px] rounded-xl mt-5 ml-10 py-10 pl-12 drop-shadow-2xl  flex justify-start items-center `}
+                                } group-hover:visible z-0 bg-secondary  h-[50px] rounded-xl mt-5 ml-10 py-10 pl-12 drop-shadow-2xl flex justify-start items-center `}
                                 variants={textMotion}
                               >
                                 <div className="text-xl ">

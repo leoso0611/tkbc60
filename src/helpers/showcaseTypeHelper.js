@@ -25,3 +25,21 @@ export const returnFontColor = (type) => {
       return "text-black";
   }
 };
+
+export const returnHoverBackgroundColor = (type) => {
+  // return ("hover:bg-" + type).toString();
+  switch (type) {
+    case "photo":
+      return "hover:bg-photo";
+    case "drawing":
+      return "hover:bg-drawing";
+    case "calligraphy":
+      return "hover:bg-calligraphy";
+    case "diy":
+      return "hover:bg-diy";
+    case "sound":
+      return "hover:bg-sound";
+    default:
+      return "";
+  }
+};
