@@ -41,13 +41,27 @@ const Card = ({ type, author_name, photo, icon, iconSize, onClickFn }) => {
   return (
     <motion.div
       className={`container absolute inline-flex justify-center items-start ${
-        Math.random() < 0.5 ? "rotate-12" : "-rotate-12"
+        Math.random() < 0.5
+          ? Math.random() < 0.5
+            ? "rotate-12"
+            : "rotate-24"
+          : Math.random() < 0.5
+          ? "-rotate-12"
+          : "-rotate-24"
       }`}
-      // onClick={onClickFn}
-
       onClick={() => onClickFn && onClickFn()}
       initial={{ y: -2000 }}
-      animate={{ y: 0, rotate: Math.random() < 0.5 ? 348 : 372 }}
+      animate={{
+        y: 0,
+        rotate:
+          Math.random() < 0.5
+            ? Math.random() < 0.5
+              ? 348
+              : 336
+            : Math.random() < 0.5
+            ? 372
+            : 384,
+      }}
       transition={{ type: "spring", duration: 1.5 }}
       whileHover={{
         scale: 1.1,
