@@ -19,15 +19,7 @@ module.exports = {
         calligraphy: "#B2D81F",
         sound: "#333132",
       },
-      rotate: {
-        360: "360deg",
-      },
-      gridTemplateColumns: {
-        "list": "repeat(auto-fill, minmax(150px, 1fr));",
-        "mobile_list": "repeat(auto-fill, minmax(100px, 1fr));"
-      }
     },
-    
   },
   plugins: [],
 };
