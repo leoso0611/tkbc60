@@ -5,6 +5,8 @@ import { cardData } from "assets/data/cardData";
 import refreshIcon from "../images/icon/refresh.svg";
 import _ from "lodash";
 import { motion } from "framer-motion";
+import styled from "styled-components";
+import { getTypeZh } from "util/utilfunction";
 
 function Wire(props) {
   return (
@@ -20,6 +22,28 @@ function Wire(props) {
     </div>
   );
 }
+
+const textMotion = {
+  rest: {
+    color: "grey",
+    x: 0,
+    width: 0,
+    transition: {
+      duration: 2,
+      type: "tween",
+      ease: "easeIn",
+    },
+  },
+  hover: {
+    x: 30,
+    width: 250,
+    transition: {
+      duration: 0.4,
+      type: "tween",
+      ease: "easeOut",
+    },
+  },
+};
 
 function Homepage() {
   const displayCardNum = window.innerWidth > 1000 ? 15 : 10;
@@ -66,10 +90,6 @@ function Homepage() {
         alt="logo"
         className={`absolute top-0  h-full w-screen z-[-3] overflow-hidden object-cover`}
       />
-      {/* <Card type="diy" />
-      <Card type="calligraphy" />
-      <Card type="sound" />
-      <Card type="drawing" /> */}
       <div className="h-full grid grid-cols-4 lg:grid-cols-10 justify-evenly w-full lg:w-4/6 mx-auto">
         {matrix.map((items, cols) => {
           if (window.innerWidth < 1000 && cols > colNum) {
@@ -98,26 +118,22 @@ function Homepage() {
                         className="group h-[100px] w-[100px] relative"
                       >
                         {box && (
-                          <div
-                            style={{
-                              direction: "ltr",
-                            }}
-                          >
+                          <Container whileHover="hover">
                             <motion.div
-                              className="absolute invisible group-hover:visible group-hover:rotate-360 group-hover: !z-50 bg-secondary p-2 top-0 h-[50px] bottom-0 rounded-lg"
-                              initial={{ width: 0 }}
-                              animate={{
-                                width: 300,
-                              }}
-                              transition={{ type: "spring", duration: 1.5 }}
+                              className="absolute invisible group-hover:visible z-0 bg-secondary  h-[50px] rounded-xl mt-5 ml-10 py-10 pl-12 drop-shadow-2xl  flex justify-start items-center "
+                              variants={textMotion}
                             >
-                              <div>
-                                <h2>{box.type}</h2>
-                                <h2>{box.name}</h2>
+                              <div className="text-xl ">
+                                <h2 className=" overflow-hidden  whitespace-nowrap">
+                                  {getTypeZh(box.type)}
+                                </h2>
+                                <h2 className="font-bold   overflow-hidden whitespace-nowrap">
+                                  {box.author_name}
+                                </h2>
                               </div>
                             </motion.div>
-                            <Card type={box.type} photo={box.image} />
-                          </div>
+                            <Card type={box.type} photo={box.source} />
+                          </Container>
                         )}
                       </div>
                     );
@@ -131,5 +147,9 @@ function Homepage() {
     </div>
   );
 }
+
+const Container = styled(motion.div)`
+  position: relative;
+`;
 
 export default Homepage;
