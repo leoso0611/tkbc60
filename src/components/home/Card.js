@@ -74,7 +74,7 @@ const Card = ({ type, author_name, photo, icon, iconSize, onClickFn }) => {
           )}
         </>
 
-        {(icon || type === "sound") && author_name && (
+        {(icon || (type === "sound" && author_name)) && (
           <img
             src={icon ?? soundIcon}
             className={`h-[${iconSize}] w-[${iconSize}] rounded-2xl object-cover`}
