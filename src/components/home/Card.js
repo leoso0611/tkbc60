@@ -3,6 +3,15 @@ import React from "react";
 import Clip from "../../images/icon/web_clip.svg";
 import soundIcon from "../../images/icon/sound.svg";
 import { motion } from "framer-motion";
+import _ from "lodash";
+
+const colorArray = [
+  "bg-sound",
+  "bg-photo",
+  "bg-calligraphy",
+  "bg-diy",
+  "bg-drawing",
+];
 
 const getTypeColour = (type) => {
   let typeColour = "";
@@ -28,7 +37,7 @@ const getTypeColour = (type) => {
   return typeColour;
 };
 
-const Card = ({ type, photo, icon, iconSize, onClickFn }) => {
+const Card = ({ type, author_name, photo, icon, iconSize, onClickFn }) => {
   return (
     <motion.div
       className={`container absolute inline-flex justify-center items-start ${
@@ -50,22 +59,22 @@ const Card = ({ type, photo, icon, iconSize, onClickFn }) => {
           type === "sound" ? "bg-sound" : "bg-white"
         } rounded-2xl flex justify-center items-center`}
       >
-        {photo && type !== "sound" && (
-          <>
-            <div
-              className={`absolute  w-[80px] h-[80px] rounded-2xl opacity-70 ${getTypeColour(
-                type
-              )}`}
-            />
+        <>
+          <div
+            className={`absolute  w-[80px] h-[80px] rounded-2xl opacity-70 ${getTypeColour(
+              type
+            )}`}
+          />
+          {photo && type !== "sound" && (
             <img
               src={photo ?? ""}
               className="h-full w-full rounded-2xl object-cover"
               alt="img"
             />
-          </>
-        )}
+          )}
+        </>
 
-        {(icon || type === "sound") && (
+        {(icon || type === "sound") && author_name && (
           <img
             src={icon ?? soundIcon}
             className={`h-[${iconSize}] w-[${iconSize}] rounded-2xl object-cover`}
@@ -80,6 +89,7 @@ const Card = ({ type, photo, icon, iconSize, onClickFn }) => {
 
 Card.propTypes = {
   type: PropTypes.string.isRequired, // "sound" | "photo" | "calligraphy" | "diy",
+  author_name: PropTypes.string,
   photo: PropTypes.string,
   icon: PropTypes.string,
   iconSize: PropTypes.number,

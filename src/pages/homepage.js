@@ -9,6 +9,7 @@ import styled from "styled-components";
 import { getTypeZh } from "util/utilfunction";
 import Modal from "components/modal";
 import Showcase from "components/showcase";
+import { typeArray } from "../util/constant";
 
 function Wire(props) {
   return (
@@ -18,7 +19,7 @@ function Wire(props) {
         <div className="h-scree w-[7px] bg-wire shadow-2xl"></div>
       </div>
 
-      <div className="grid grid-rows-8 absolute gap-5 mt-10 lg:mt-2 2xl:mt-14 ">
+      <div className="grid grid-rows-8 absolute gap-5 mt-12 lg:mt-2 2xl:mt-14 ">
         {props.children}
       </div>
     </div>
@@ -63,8 +64,36 @@ function Homepage() {
     );
 
     let newCardData = _.shuffle(cardData);
-    for (let i = 0; i <= displayCardNum; i++) {
-      temp[_.random(0, colNum)][_.random(0, rowNum)] = newCardData[i];
+    for (let i = 1; i <= colNum; i++) {
+      let tempRowNum = _.random(0, rowNum);
+
+      if (newCardData[i - 1]) {
+        temp[i][tempRowNum] = newCardData[i - 1];
+      } else {
+        temp[i][tempRowNum] = {
+          id: i,
+          type: typeArray[_.random(0, typeArray.length - 1)],
+          author_name: undefined,
+        };
+      }
+    }
+    for (let i = colNum + 1; i <= displayCardNum; i++) {
+      let tempColNum = _.random(1, colNum);
+      let tempRowNum = _.random(0, rowNum);
+      while (temp[tempColNum][tempRowNum]) {
+        // when box have item, random other postion
+        tempColNum = _.random(1, colNum);
+        tempRowNum = _.random(0, rowNum);
+      }
+      if (newCardData[i]) {
+        temp[tempColNum][tempRowNum] = newCardData[i];
+      } else {
+        temp[tempColNum][tempRowNum] = {
+          id: i,
+          type: typeArray[_.random(0, typeArray.length - 1)],
+          author_name: undefined,
+        };
+      }
     }
     setMatrix(temp);
   }
@@ -127,11 +156,15 @@ function Homepage() {
                               whileHover="hover"
                               onClick={() => {
                                 setOpenedItem(box);
-                                setIsModalOpen(!isModalOpen);
+                                box.author_name && setIsModalOpen(!isModalOpen);
                               }}
                             >
                               <motion.div
-                                className="absolute invisible group-hover:visible z-0 bg-secondary  h-[50px] rounded-xl mt-5 ml-10 py-10 pl-12 drop-shadow-2xl  flex justify-start items-center "
+                                className={`absolute invisible ${
+                                  box.author_name
+                                    ? "group-hover:visible"
+                                    : "group-hover:invisible"
+                                } group-hover:visible z-0 bg-secondary  h-[50px] rounded-xl mt-5 ml-10 py-10 pl-12 drop-shadow-2xl  flex justify-start items-center `}
                                 variants={textMotion}
                               >
                                 <div className="text-xl ">
@@ -143,7 +176,11 @@ function Homepage() {
                                   </h2>
                                 </div>
                               </motion.div>
-                              <Card type={box.type} photo={box.source} />
+                              <Card
+                                type={box.type}
+                                author_name={box.author_name}
+                                photo={box.source}
+                              />
                             </Container>
                           )}
                         </div>
