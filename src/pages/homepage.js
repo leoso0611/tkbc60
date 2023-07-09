@@ -98,6 +98,10 @@ function Homepage() {
     setMatrix(temp);
   }
 
+  const handleReload = () => {
+    window.location.reload(false);
+  };
+
   useEffect(() => {
     handleFresh();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -141,7 +145,7 @@ function Homepage() {
                               type="refresh"
                               icon={refreshIcon}
                               iconSize={30}
-                              onClickFn={handleFresh}
+                              onClickFn={handleReload}
                             />
                           </div>
                         );
