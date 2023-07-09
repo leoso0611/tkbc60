@@ -7,6 +7,8 @@ import _ from "lodash";
 import { motion } from "framer-motion";
 import styled from "styled-components";
 import { getTypeZh } from "util/utilfunction";
+import Modal from "components/modal";
+import Showcase from "components/showcase";
 
 function Wire(props) {
   return (
@@ -52,6 +54,8 @@ function Homepage() {
   const [matrix, setMatrix] = useState(
     Array.from({ length: 10 }, () => Array.from({ length: 6 }, () => undefined))
   );
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [openedItem, setOpenedItem] = useState(undefined);
 
   function handleFresh() {
     let temp = Array.from({ length: 10 }, () =>
@@ -84,67 +88,82 @@ function Homepage() {
   ];
 
   return (
-    <div className="relative overflow-hidden ">
-      <img
-        src={Home_bg}
-        alt="logo"
-        className={`absolute top-0  h-full w-screen z-[-3] overflow-hidden object-cover`}
-      />
-      <div className="h-full grid grid-cols-4 lg:grid-cols-10 justify-evenly w-full lg:w-4/6 mx-auto">
-        {matrix.map((items, cols) => {
-          if (window.innerWidth < 1000 && cols > colNum) {
-            return undefined;
-          }
-          return (
-            <div key={cols} className={`${a[cols]}`}>
-              <Wire>
-                <div className={`${cols % 2 === 0 ? "mt-12" : ""}`}>
-                  {items.map((box, rows) => {
-                    if (cols === 0 && rows === 4) {
+    <>
+      <div className="relative overflow-hidden ">
+        <img
+          src={Home_bg}
+          alt="logo"
+          className={`absolute top-0  h-full w-screen z-[-3] overflow-hidden object-cover`}
+        />
+        <div className="h-full grid grid-cols-4 lg:grid-cols-10 justify-evenly w-full lg:w-4/6 mx-auto">
+          {matrix.map((items, cols) => {
+            if (window.innerWidth < 1000 && cols > colNum) {
+              return undefined;
+            }
+            return (
+              <div key={cols} className={`${a[cols]}`}>
+                <Wire>
+                  <div className={`${cols % 2 === 0 ? "mt-12" : ""}`}>
+                    {items.map((box, rows) => {
+                      if (cols === 0 && rows === 4) {
+                        return (
+                          <div key={rows} className="h-[100px] w-[100px]">
+                            <Card
+                              type="refresh"
+                              icon={refreshIcon}
+                              iconSize={30}
+                              onClickFn={handleFresh}
+                            />
+                          </div>
+                        );
+                      }
                       return (
-                        <div key={rows} className="h-[100px] w-[100px]">
-                          <Card
-                            type="refresh"
-                            icon={refreshIcon}
-                            iconSize={30}
-                            onClickFn={handleFresh}
-                          />
+                        <div
+                          key={rows}
+                          className="group h-[100px] w-[100px] relative"
+                        >
+                          {box && (
+                            <Container
+                              whileHover="hover"
+                              onClick={() => {
+                                setOpenedItem(box);
+                                setIsModalOpen(!isModalOpen);
+                              }}
+                            >
+                              <motion.div
+                                className="absolute invisible group-hover:visible z-0 bg-secondary  h-[50px] rounded-xl mt-5 ml-10 py-10 pl-12 drop-shadow-2xl  flex justify-start items-center "
+                                variants={textMotion}
+                              >
+                                <div className="text-xl ">
+                                  <h2 className=" overflow-hidden  whitespace-nowrap">
+                                    {getTypeZh(box.type)}
+                                  </h2>
+                                  <h2 className="font-bold   overflow-hidden whitespace-nowrap">
+                                    {box.author_name}
+                                  </h2>
+                                </div>
+                              </motion.div>
+                              <Card type={box.type} photo={box.source} />
+                            </Container>
+                          )}
                         </div>
                       );
-                    }
-                    return (
-                      <div
-                        key={rows}
-                        className="group h-[100px] w-[100px] relative"
-                      >
-                        {box && (
-                          <Container whileHover="hover">
-                            <motion.div
-                              className="absolute invisible group-hover:visible z-0 bg-secondary  h-[50px] rounded-xl mt-5 ml-10 py-10 pl-12 drop-shadow-2xl  flex justify-start items-center "
-                              variants={textMotion}
-                            >
-                              <div className="text-xl ">
-                                <h2 className=" overflow-hidden  whitespace-nowrap">
-                                  {getTypeZh(box.type)}
-                                </h2>
-                                <h2 className="font-bold   overflow-hidden whitespace-nowrap">
-                                  {box.author_name}
-                                </h2>
-                              </div>
-                            </motion.div>
-                            <Card type={box.type} photo={box.source} />
-                          </Container>
-                        )}
-                      </div>
-                    );
-                  })}
-                </div>
-              </Wire>
-            </div>
-          );
-        })}
+                    })}
+                  </div>
+                </Wire>
+              </div>
+            );
+          })}
+        </div>
       </div>
-    </div>
+      <Modal open={isModalOpen} setIsModalOpen={setIsModalOpen}>
+        <Showcase
+          item={openedItem}
+          open={isModalOpen}
+          setOpen={setIsModalOpen}
+        />
+      </Modal>
+    </>
   );
 }
 
