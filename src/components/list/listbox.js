@@ -28,7 +28,7 @@ function Listbox({ isStart = false, item, setOpen, setOpenedItem }) {
           <div
             className={`w-[90px] h-[90px] md:w-[142px] md:h-[142px] absolute bg-transparent mix-blend-multiply ${returnHoverBackgroundColor(type)} opacity-30`}
           />
-          <img src={soundIcon} alt="img" />
+          <img src={soundIcon} alt="img" className="h-[30px] w-[30px]"/>
           <div className="text-white">{name}</div>
         </div>
       ) : (

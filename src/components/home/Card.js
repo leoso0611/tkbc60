@@ -37,7 +37,8 @@ const getTypeColour = (type) => {
   return typeColour;
 };
 
-const Card = ({ type, author_name, photo, icon, iconSize, onClickFn }) => {
+const Card = ({ type, author_name, photo, icon, iconSize = 30, onClickFn }) => {
+  console.log(iconSize);
   return (
     <motion.div
       className={`container absolute inline-flex justify-center items-start ${
@@ -91,7 +92,7 @@ const Card = ({ type, author_name, photo, icon, iconSize, onClickFn }) => {
         {(icon || (type === "sound" && author_name)) && (
           <img
             src={icon ?? soundIcon}
-            className={`h-[${iconSize}] w-[${iconSize}] rounded-2xl object-cover`}
+            className={`h-[${iconSize?.toString()}px] w-[${iconSize?.toString()}px] rounded-2xl object-cover`}
             alt="img"
           />
         )}
