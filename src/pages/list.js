@@ -64,11 +64,13 @@ function List() {
   };
 
   return (
-    <div className="bg-primaryBackground">
-      <div className="max-w-screen-xl mx-auto px-6 py-12 md:px-4 md:py-10">
-        <Pagetitle title="作品集" />
-        <div className="grid grid-cols-mobile_list md:grid-cols-list gap-y-3">
-          {returnBoxes(sortedData)}
+    <>
+      <div className="bg-primaryBackground">
+        <div className="max-w-screen-xl mx-auto px-6 py-12 md:px-4 md:py-10">
+          <Pagetitle title="作品集" />
+          <div className="grid grid-cols-mobile_list md:grid-cols-list gap-y-3">
+            {returnBoxes(sortedData)}
+          </div>
         </div>
       </div>
       <Modal
@@ -87,7 +89,7 @@ function List() {
       >
         <Showcase item={openedItem} open={open} setOpen={setOpen} />
       </Modal>
-    </div>
+    </>
   );
 }
 

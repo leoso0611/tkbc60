@@ -11,6 +11,7 @@ export default function Modal({
   handleNext,
   handleBack,
 }) {
+  const isMobile = window.innerWidth < 768;
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog as="div" className="relative z-[80]" onClose={() => {}}>
@@ -28,7 +29,7 @@ export default function Modal({
 
         <div className="fixed inset-0 z-10 overflow-y-auto">
           <div className="flex min-h-full items-end justify-center md:p-4 p-0 text-center items-center">
-            {withCarousell && (
+            {withCarousell && !isMobile && (
               <Transition.Child
                 as={Fragment}
                 enter="ease-out duration-300"
@@ -38,7 +39,7 @@ export default function Modal({
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="md:block hidden flex justify-center">
+                <Dialog.Panel className="md:block flex justify-center">
                   <button disabled={!ableToBack} onClick={handleBack}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -81,7 +82,7 @@ export default function Modal({
               </Dialog.Panel>
             </Transition.Child>
 
-            {withCarousell && (
+            {withCarousell && !isMobile && (
               <Transition.Child
                 as={Fragment}
                 enter="ease-out duration-300"
@@ -91,7 +92,7 @@ export default function Modal({
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="md:block hidden flex justify-center">
+                <Dialog.Panel className="md:block flex justify-center">
                   <button disabled={!ableToNext} onClick={handleNext}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

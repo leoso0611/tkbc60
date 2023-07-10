@@ -38,7 +38,6 @@ const getTypeColour = (type) => {
 };
 
 const Card = ({ type, author_name, photo, icon, iconSize = 30, onClickFn }) => {
-  console.log(iconSize);
   return (
     <motion.div
       className={`container absolute inline-flex justify-center items-start ${
