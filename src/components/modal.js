@@ -77,7 +77,7 @@ export default function Modal({
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
-              <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all m-6 sm:w-full md:max-w-4xl w-[90%] md:h-[600px] h-[90vh]">
+              <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all m-6 sm:w-full md:max-w-4xl w-[90%] md:h-[600px] h-[80vh]">
                 {children}
               </Dialog.Panel>
             </Transition.Child>
