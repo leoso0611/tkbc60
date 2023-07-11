@@ -138,7 +138,7 @@ function Homepage() {
                 <Wire>
                   <div className={`${cols % 2 === 0 ? "mt-12" : ""}`}>
                     {items.map((box, rows) => {
-                      if (cols === 0 && rows === 2) {
+                      if (cols === 0 && rows === 3) {
                         return (
                           <div key={rows} className="h-[100px] w-[100px] mb-3">
                             <Card
