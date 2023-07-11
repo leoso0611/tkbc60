@@ -1,8 +1,7 @@
 import PropTypes from "prop-types";
-import Clip from "images/icon/yellow_clip.png";
 import Player from "./player";
 
-import { returnTitle } from "helpers/showcaseTypeHelper";
+import { returnTitle, returnColorClip } from "helpers/showcaseTypeHelper";
 
 function Showcase({ item, setOpen, open }) {
   const { author_name, description, source, type } = item;
@@ -46,7 +45,7 @@ function Showcase({ item, setOpen, open }) {
 
         <div className="md:flex-1 md:px-6 md:py-10 px-0 pt-0 pb-8 md:mt-0 mt-6 md:flex md:flex-col md:justify-start md:justify-center">
           <div className="flex items-center">
-            <img src={Clip} alt="clip" className="w-10" />{" "}
+            <img src={returnColorClip(type)} alt="clip" className="w-10 mr-3" />{" "}
             {/* TODO: switch type => different clip color */}
             {returnTitle(type)}
           </div>
