@@ -1,6 +1,6 @@
 import source1 from "./1.jpg";
 import source2 from "./2.jpg";
-import source3 from "./3.m4a";
+import source3 from "./3.mp3";
 import source4 from "./4.jpeg";
 import source5 from "./5.jpg";
 import source6 from "./6.jpeg";
