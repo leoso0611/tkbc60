@@ -104,7 +104,7 @@ const Card = ({ type, author_name, photo, icon, iconSize = 30, onClickFn }) => {
             />
             <img
               src={icon ?? soundIcon}
-              className={`h-[${iconSize?.toString()}px] w-[${iconSize?.toString()}px] object-cover`}
+              className={`h-[${iconSize?.toString()}px] w-[${iconSize?.toString()}px] object-cover ${icon && "fill-primary"}`}
               alt="img"
             />
           </>
