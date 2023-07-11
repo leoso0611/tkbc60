@@ -27,11 +27,11 @@ function Navbar() {
             <div className={linkclassName}>作品集</div>
           </Link>
         </li>
-        <li>
+        {/* <li>
           <Link to="/bless">
             <div className={linkclassName}>祝福語</div>
           </Link>
-        </li>
+        </li> */}
       </ul>
     </div>
   );
@@ -50,11 +50,11 @@ function Navbar() {
               作品集
             </div>
           </Link>
-          <Link to="/bless">
+          {/* <Link to="/bless">
             <div className={mobilelinkclassName} onClick={handleMenuTabOnClick}>
               祝福語
             </div>
-          </Link>
+          </Link> */}
         </div>
       </div>
     ) : null;
