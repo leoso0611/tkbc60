@@ -45,7 +45,7 @@ function About() {
                 <Carousel
                   theme={{
                     root: {
-                      "base": "relative h-full w-full bg-primary",
+                      base: "relative h-full w-full bg-primary",
                     },
                     scrollContainer: {
                       base: "flex h-full snap-mandatory !overflow-y-hidden overflow-x-scroll scroll-smooth rounded-lg",
@@ -55,6 +55,7 @@ function About() {
                 >
                   {photos.map((item, idx) => (
                     <img
+                      key={idx}
                       alt={`tkcb${idx}`}
                       src={item}
                       className="h-full object-contain"
