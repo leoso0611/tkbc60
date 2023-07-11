@@ -7,7 +7,7 @@ export const getTypeZh = (type) => {
     case "calligraphy":
       return "書法作品";
     case "zothers":
-      return "手工作品";
+      return "其他作品";
     case "drawing":
       return "繪畫作品";
     default:
