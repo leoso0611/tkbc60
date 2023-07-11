@@ -5,14 +5,6 @@ import soundIcon from "../../images/icon/sound.svg";
 import { motion } from "framer-motion";
 import _ from "lodash";
 
-const colorArray = [
-  "bg-sound",
-  "bg-photo",
-  "bg-calligraphy",
-  "bg-diy",
-  "bg-drawing",
-];
-
 const getTypeColour = (type) => {
   let typeColour = "";
   switch (type) {
@@ -37,6 +29,8 @@ const getTypeColour = (type) => {
   return typeColour;
 };
 
+const angle = [336, 348, 372, 384];
+
 const Card = ({ type, author_name, photo, icon, iconSize, onClickFn }) => {
   return (
     <motion.div
@@ -47,7 +41,7 @@ const Card = ({ type, author_name, photo, icon, iconSize, onClickFn }) => {
 
       onClick={() => onClickFn && onClickFn()}
       initial={{ y: -2000 }}
-      animate={{ y: 0, rotate: Math.random() < 0.5 ? 348 : 372 }}
+      animate={{ y: 0, rotate: angle[_.random(0, 3)] }}
       transition={{ type: "spring", duration: 1.5 }}
       whileHover={{
         scale: 1.2,
@@ -55,13 +49,13 @@ const Card = ({ type, author_name, photo, icon, iconSize, onClickFn }) => {
       }}
     >
       <div
-        className={`mt-4 w-[80px] h-[80px] ${
+        className={`mt-4 w-[60px] lg:w-[80px] h-[60px] lg:h-[80px] ${
           type === "sound" ? "bg-sound" : "bg-white"
         } rounded-2xl flex justify-center items-center`}
       >
         <>
           <div
-            className={`absolute  w-[80px] h-[80px] rounded-2xl opacity-70 ${getTypeColour(
+            className={`absolute w-[60px] lg:w-[80px] h-[60px] lg:h-[80px] rounded-xl lg:rounded-2xl opacity-70 ${getTypeColour(
               type
             )}`}
           />
@@ -82,7 +76,7 @@ const Card = ({ type, author_name, photo, icon, iconSize, onClickFn }) => {
           />
         )}
       </div>
-      <img src={Clip} className="absolute h-[30px]" alt="clip" />
+      <img src={Clip} className="absolute h-[25px] lg:h-[30px]" alt="clip" />
     </motion.div>
   );
 };
