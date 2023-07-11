@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-import Close from "images/icon/close.svg";
 import Clip from "images/icon/yellow_clip.png";
 import Player from "./player";
 
