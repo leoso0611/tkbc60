@@ -20,7 +20,7 @@ module.exports = {
         diy: "#F2434C",
         drawing: "#F2DA08",
         calligraphy: "#B2D81F",
-        sound: "#5F5F5F",
+        sound: "#5F5F5F"
       },
       rotate: {
         360: "360deg",

@@ -32,12 +32,12 @@ function Showcase({ item, setOpen, open }) {
         </svg>
       </button>
       <div className="flex md:flex-row flex-col h-full md:mt-0 mt-10">
-        <div className="md:flex-[2] md:flex md:items-center">
+        <div className="md:flex-[2] md:flex md:items-center justify-center">
           {item.type !== "sound" ? (
             <img
               src={source}
               alt="show"
-              className="md:h-full object-contain object-center"
+              className="md:h-full object-contain"
             />
           ) : (
             <Player item={item} open={open} />

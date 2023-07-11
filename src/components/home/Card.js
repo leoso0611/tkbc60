@@ -70,14 +70,14 @@ const Card = ({ type, author_name, photo, icon, iconSize = 30, onClickFn }) => {
     >
       <div
         className={`mt-4 2xl:w-[80px] w-[70px] 2xl:h-[80px] h-[70px] ${
-          type === "sound" ? "bg-sound" : "bg-white"
+          icon && "bg-secondary"
         } rounded-2xl flex justify-center items-center`}
       >
         <>
           <div
-            className={`absolute 2xl:w-[80px] w-[70px] 2xl:h-[80px] h-[70px] rounded-2xl mix-blend-multiply opacity-90 ${getTypeColour(
-              type
-            )}`}
+            className={`absolute 2xl:w-[80px] w-[70px] 2xl:h-[80px] h-[70px] rounded-2xl mix-blend-multiply ${
+              !(type === "sound" && author_name) && "opacity-90"
+            } ${getTypeColour(type)} ${type === "sound" && "z-[-1]"}`}
           />
           {photo && type !== "sound" && (
             <img
@@ -91,7 +91,7 @@ const Card = ({ type, author_name, photo, icon, iconSize = 30, onClickFn }) => {
         {(icon || (type === "sound" && author_name)) && (
           <img
             src={icon ?? soundIcon}
-            className={`h-[${iconSize?.toString()}px] w-[${iconSize?.toString()}px] rounded-2xl object-cover`}
+            className={`h-[${iconSize?.toString()}px] w-[${iconSize?.toString()}px] object-cover`}
             alt="img"
           />
         )}
