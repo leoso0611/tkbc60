@@ -1,9 +1,12 @@
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+    "node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}",
+  ],
   theme: {
     extend: {
       fontFamily: {
-        'noto': ['"Noto Sans TC"', 'sans-serif']
+        noto: ['"Noto Sans TC"', "sans-serif"],
       },
       colors: {
         primary: "#1B252F",
@@ -23,10 +26,10 @@ module.exports = {
         360: "360deg",
       },
       gridTemplateColumns: {
-        "list": "repeat(auto-fill, minmax(150px, 1fr));",
-        "mobile_list": "repeat(auto-fill, minmax(100px, 1fr));"
-      }
+        list: "repeat(auto-fill, minmax(150px, 1fr));",
+        mobile_list: "repeat(auto-fill, minmax(100px, 1fr));",
+      },
     },
   },
-  plugins: [],
+  plugins: [require("flowbite/plugin")],
 };
