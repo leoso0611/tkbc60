@@ -4,9 +4,28 @@ import Pagetitle from "components/pagetitle";
 
 import { Carousel } from "flowbite-react";
 
-import source4 from "assets/workData/4.jpeg";
+import Tkbc1 from "assets/slideshowPhotos/TKBC1.jpg";
+import Tkbc2 from "assets/slideshowPhotos/TKBC2.jpg";
+import Tkbc3 from "assets/slideshowPhotos/TKBC3.jpg";
+import Tkbc4 from "assets/slideshowPhotos/TKBC4.jpg";
+import Tkbc5 from "assets/slideshowPhotos/TKBC5.jpg";
+import Tkbc6 from "assets/slideshowPhotos/TKBC6.jpg";
+import Tkbc7 from "assets/slideshowPhotos/TKBC7.jpg";
+import Tkbc8 from "assets/slideshowPhotos/TKBC8.jpg";
+import Tkbc9 from "assets/slideshowPhotos/TKBC9.jpg";
 
 function About() {
+  const photos = [
+    Tkbc1,
+    Tkbc2,
+    Tkbc3,
+    Tkbc4,
+    Tkbc5,
+    Tkbc6,
+    Tkbc7,
+    Tkbc8,
+    Tkbc9,
+  ];
   return (
     <>
       <div className="bg-primaryBackground relative">
@@ -25,33 +44,22 @@ function About() {
               <div className="md:h-96 h-64">
                 <Carousel
                   theme={{
+                    root: {
+                      "base": "relative h-full w-full bg-primary",
+                    },
                     scrollContainer: {
                       base: "flex h-full snap-mandatory !overflow-y-hidden overflow-x-scroll scroll-smooth rounded-lg",
                       snap: "snap-x",
                     },
                   }}
                 >
-                  <img
-                    alt="..."
-                    src="https://flowbite.com/docs/images/carousel/carousel-1.svg"
-                  />
-                  <img
-                    alt="..."
-                    src={source4}
-                    className="h-full object-contain"
-                  />
-                  <img
-                    alt="..."
-                    src="https://flowbite.com/docs/images/carousel/carousel-3.svg"
-                  />
-                  <img
-                    alt="..."
-                    src="https://flowbite.com/docs/images/carousel/carousel-4.svg"
-                  />
-                  <img
-                    alt="..."
-                    src="https://flowbite.com/docs/images/carousel/carousel-5.svg"
-                  />
+                  {photos.map((item, idx) => (
+                    <img
+                      alt={`tkcb${idx}`}
+                      src={item}
+                      className="h-full object-contain"
+                    />
+                  ))}
                 </Carousel>
               </div>
               <div className="w-full pb-4 mt-4 flex flex-row justify-end items-center">
@@ -60,7 +68,9 @@ function About() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <div className="flex items-center text-primary">查看更多照片(歡迎下載)</div>
+                  <div className="flex items-center text-primary underline">
+                    查看更多照片(歡迎下載)
+                  </div>
                 </a>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

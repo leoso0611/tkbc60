@@ -30,7 +30,7 @@ export const workdata = [
     author_zone: "陳思雅",
     description:
       "1,慈光這個大家庭，無分彼此，遇風浪時仍然堅恃倚靠主的群體。\n2,有著重要的DNA（遍傳）加（集體聆聽）\n3,作鹽作光，突破自已，承傅使命，願意成為傳福音的鴿子。\n4,成為戰士，為多方禱告守望這個城市。",
-    source: "https://soundcloud.com/so-leo-263836900/61bdfvbxq4ri/s-E6rkE0HVOmg?si=b1d12285b49c47a8a3b1b7eb010b2a42&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing",
+    source: source3,
     type: "sound",
     name: "作鹽作光"
   },
