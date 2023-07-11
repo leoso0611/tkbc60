@@ -40,7 +40,7 @@ export default function Modal({
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
                 <Dialog.Panel className="md:block flex justify-center">
-                  <button disabled={!ableToBack} onClick={handleBack}>
+                  <button disabled={!ableToBack} onClick={handleBack} className="focus:outline-0">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
@@ -93,7 +93,7 @@ export default function Modal({
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
                 <Dialog.Panel className="md:block flex justify-center">
-                  <button disabled={!ableToNext} onClick={handleNext}>
+                  <button disabled={!ableToNext} onClick={handleNext} className="focus:outline-0">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
