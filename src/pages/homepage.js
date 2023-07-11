@@ -126,9 +126,9 @@ function Homepage() {
         <img
           src={Home_bg}
           alt="logo"
-          className={`absolute top-0  h-full w-screen z-[-3] overflow-hidden object-cover blur-sm`}
+          className={`absolute top-0 h-full w-screen z-[-3] overflow-hidden object-cover blur-sm`}
         />
-        <div className="h-full grid grid-cols-4 lg:grid-cols-10 justify-evenly w-full lg:w-4/6 mx-auto">
+        <div className="h-full grid grid-cols-4 lg:grid-cols-10 justify-evenly w-full lg:w-4/6 mx-auto 2xl:gap-8 md:gap-24">
           {matrix.map((items, cols) => {
             if (window.innerWidth < 1000 && cols > colNum) {
               return undefined;
