@@ -22,7 +22,7 @@ export const workdata = [
     description:
       "慈光堂60周年，經歷18區遍傳，九龍城遍傳和大型嘉年華會，服侍四川留守兒童，參與回家聚集和4C，親墟服侍街坊，近年購堂，每年尋求神心意，興起人回應神，數算恩典實在太多。所以獻上慈光六十，主恩滿溢的藝術字花畫，祝福慈光堂繼續經歷主恩滿溢！",
     source: source2,
-    type: "diy",
+    type: "calligraphy",
   },
   {
     id: "3",
@@ -30,7 +30,7 @@ export const workdata = [
     author_zone: "陳思雅",
     description:
       "1,慈光這個大家庭，無分彼此，遇風浪時仍然堅恃倚靠主的群體。\n2,有著重要的DNA（遍傳）加（集體聆聽）\n3,作鹽作光，突破自已，承傅使命，願意成為傳福音的鴿子。\n4,成為戰士，為多方禱告守望這個城市。",
-    source: source3,
+    source: "https://soundcloud.com/so-leo-263836900/61bdfvbxq4ri/s-E6rkE0HVOmg?si=b1d12285b49c47a8a3b1b7eb010b2a42&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing",
     type: "sound",
     name: "作鹽作光"
   },
@@ -50,7 +50,7 @@ export const workdata = [
     description:
       "由傳福音理念而開始創作......至購堂方向.....到服侍區域......按主的帶領而行.....",
     source: source5,
-    type: "drawing",
+    type: "zothers",
   },
   {
     id: "6",
