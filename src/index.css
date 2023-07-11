@@ -1,3 +1,9 @@
 @tailwind base;
+@layer base {
+  html {
+    @apply text-primary;
+  } 
+}
+
 @tailwind components;
 @tailwind utilities;

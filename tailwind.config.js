@@ -16,7 +16,7 @@ module.exports = {
         copyrighttext: "#174092",
         wire: "#918D7B",
         disabled: "#918D7B",
-        media: "#061c47",
+        media: "#0065B9",
         zothers: "#F2434C",
         drawing: "#F2DA08",
         calligraphy: "#B2D81F",

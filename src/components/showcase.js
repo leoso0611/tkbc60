@@ -10,9 +10,10 @@ function Showcase({ item, setOpen, open }) {
   };
   return (
     <div className="bg-secondary w-full h-full md:p-8 p-4 no-scrollbar overflow-scroll relative">
-      <div
+      <button
+        type="button"
         onClick={handleModalClose}
-        className="hover:bg-gray-300 rounded-full w-8 h-8 flex justify-center items-center absolute md:right-8 right-4 focus:shadow-none cursor-pointer"
+        className="hover:bg-gray-300 rounded-full w-8 h-8 flex justify-center items-center absolute md:right-8 right-4 focus:outline-0"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -24,20 +25,16 @@ function Showcase({ item, setOpen, open }) {
           <path
             d="M3 3L20 20M3 20L20 3"
             stroke="#1B252F"
-            stroke-width="5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </svg>
-      </div>
+      </button>
       <div className="flex md:flex-row flex-col h-full md:mt-0 mt-10">
         <div className="md:flex-[2] md:flex md:items-center justify-center">
           {item.type !== "sound" ? (
-            <img
-              src={source}
-              alt="show"
-              className="md:h-full object-contain"
-            />
+            <img src={source} alt="show" className="md:h-full object-contain" />
           ) : (
             <Player item={item} open={open} />
           )}
@@ -53,8 +50,8 @@ function Showcase({ item, setOpen, open }) {
           <div className="mt-4 font-bold text-base">
             作品概念
             <div className="font-normal mt-4">
-              {description.split("\n").map((str) => (
-                <div>{str}</div>
+              {description.split("\n").map((str, idx) => (
+                <div key={idx}>{str}</div>
               ))}
             </div>
           </div>

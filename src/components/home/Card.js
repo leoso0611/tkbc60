@@ -66,27 +66,41 @@ const Card = ({ type, author_name, photo, icon, iconSize = 30, onClickFn }) => {
           icon && "bg-secondary"
         } rounded-2xl flex justify-center items-center`}
       >
-        <>
+        {!photo && !author_name && (
           <div
-            className={`absolute 2xl:w-[80px] w-[70px] 2xl:h-[80px] h-[70px] rounded-2xl mix-blend-multiply ${
-              !(type === "sound" && author_name) && "opacity-90"
-            } ${getTypeColour(type)} ${type === "sound" && "z-[-1]"}`}
+            className={`absolute 2xl:w-[80px] w-[70px] 2xl:h-[80px] h-[70px] rounded-2xl mix-blend-multiply opacity-90 ${getTypeColour(
+              type
+            )}`}
           />
-          {photo && type !== "sound" && (
+        )}
+        {photo && type !== "sound" && (
+          <>
             <img
               src={photo ?? ""}
               className="h-full w-full rounded-2xl object-cover"
               alt="img"
             />
-          )}
-        </>
+            <div
+              className={`absolute 2xl:w-[80px] w-[70px] 2xl:h-[80px] h-[70px] rounded-2xl mix-blend-multiply opacity-90 ${getTypeColour(
+                type
+              )}`}
+            />
+          </>
+        )}
 
         {(icon || (type === "sound" && author_name)) && (
-          <img
-            src={icon ?? soundIcon}
-            className={`h-[${iconSize?.toString()}px] w-[${iconSize?.toString()}px] object-cover`}
-            alt="img"
-          />
+          <>
+            <div
+              className={`absolute 2xl:w-[80px] w-[70px] 2xl:h-[80px] h-[70px] rounded-2xl mix-blend-multiply ${
+                type !== "sound" && "opacity-90"
+              } ${getTypeColour(type)} ${type === "sound" && "z-[-1]"}`}
+            />
+            <img
+              src={icon ?? soundIcon}
+              className={`h-[${iconSize?.toString()}px] w-[${iconSize?.toString()}px] object-cover ${icon && "fill-primary"}`}
+              alt="img"
+            />
+          </>
         )}
       </div>
       <img src={Clip} className="absolute h-[25px] lg:h-[30px]" alt="clip" />
