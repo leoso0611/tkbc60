@@ -19,7 +19,7 @@ function Wire(props) {
         <div className="h-scree w-[7px] bg-wire shadow-2xl"></div>
       </div>
 
-      <div className="grid grid-rows-8 absolute gap-5 my-4 2xl:my-24 md:my-12">
+      <div className="grid grid-rows-8 absolute gap-5  sm:py-6 md:py-0 my-4 2xl:my-24 md:my-2">
         {props.children}
       </div>
     </div>
@@ -62,6 +62,7 @@ function Homepage() {
     let temp = Array.from({ length: 10 }, () =>
       Array.from({ length: 5 }, () => undefined)
     );
+    let colsItems = Array.from({ length: 10 }, () => 0);
 
     let newCardData = _.shuffle(workdata);
     for (let i = 1; i <= colNum; i++) {
@@ -76,14 +77,21 @@ function Homepage() {
           author_name: undefined,
         };
       }
+      colsItems[i]++;
     }
+
     for (let i = colNum + 1; i <= displayCardNum; i++) {
       let tempColNum = _.random(1, colNum);
       let tempRowNum = _.random(0, rowNum);
-      while (temp[tempColNum][tempRowNum]) {
+      let retry = 0;
+      while (temp[tempColNum][tempRowNum] || colsItems[tempColNum] >= 3) {
         // when box have item, random other postion
         tempColNum = _.random(1, colNum);
         tempRowNum = _.random(0, rowNum);
+        if (retry > 3) {
+          break;
+        }
+        retry++;
       }
       if (newCardData[i]) {
         temp[tempColNum][tempRowNum] = newCardData[i];
@@ -94,15 +102,19 @@ function Homepage() {
           author_name: undefined,
         };
       }
+      colsItems[tempColNum]++;
     }
     setMatrix(temp);
   }
+
+  // handleFresh();
 
   const handleReload = () => {
     window.location.reload(false);
   };
 
   useEffect(() => {
+    console.log("useEffect trigger"); //problem call 2 times
     handleFresh();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -153,7 +165,7 @@ function Homepage() {
                       return (
                         <div
                           key={rows}
-                          className="group h-[100px] w-[100px] relative mb-6"
+                          className="group h-[100px] w-[100px] relative my-4 md:my-6"
                         >
                           {box && (
                             <Container
@@ -163,23 +175,25 @@ function Homepage() {
                                 box.author_name && setIsModalOpen(!isModalOpen);
                               }}
                             >
-                              {!isMobile && <motion.div
-                                className={`absolute invisible ${
-                                  box.author_name
-                                    ? "group-hover:visible"
-                                    : "group-hover:invisible"
-                                } group-hover:visible z-0 bg-secondary h-[50px] rounded-xl mt-5 ml-10 pl-10 pr-4 py-8 drop-shadow-2xl flex justify-start items-center `}
-                                variants={textMotion}
-                              >
-                                <div className="text-base">
-                                  <h2 className="overflow-hidden whitespace-nowrap">
-                                    {getTypeZh(box.type)}
-                                  </h2>
-                                  <h2 className="font-bold overflow-hidden whitespace-nowrap">
-                                    {box.author_name}
-                                  </h2>
-                                </div>
-                              </motion.div>}
+                              {!isMobile && (
+                                <motion.div
+                                  className={`absolute invisible ${
+                                    box.author_name
+                                      ? "group-hover:visible"
+                                      : "group-hover:invisible"
+                                  } group-hover:visible z-0 bg-secondary h-[30px] lg:h-[50px] rounded-xl mt-5 ml-10 py-7 lg:py-10 pl-12 drop-shadow-2xl  flex justify-start items-center `}
+                                  variants={textMotion}
+                                >
+                                  <div className="text-md lg:text-xl pr-10">
+                                    <h2 className=" overflow-hidden  whitespace-nowrap">
+                                      {getTypeZh(box.type)}
+                                    </h2>
+                                    <h2 className="font-bold  overflow-hidden whitespace-nowrap">
+                                      {box.author_name}
+                                    </h2>
+                                  </div>
+                                </motion.div>
+                              )}
                               <Card
                                 type={box.type}
                                 author_name={box.author_name}
