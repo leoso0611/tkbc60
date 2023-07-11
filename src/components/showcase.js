@@ -11,9 +11,9 @@ function Showcase({ item, setOpen, open }) {
   };
   return (
     <div className="bg-secondary w-full h-full md:p-8 p-4 no-scrollbar overflow-scroll relative">
-      <button
+      <div
         onClick={handleModalClose}
-        className="hover:bg-gray-300 rounded-full w-8 h-8 flex justify-center items-center absolute md:right-8 right-4"
+        className="hover:bg-gray-300 rounded-full w-8 h-8 flex justify-center items-center absolute md:right-8 right-4 focus:shadow-none cursor-pointer"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -30,7 +30,7 @@ function Showcase({ item, setOpen, open }) {
             stroke-linejoin="round"
           />
         </svg>
-      </button>
+      </div>
       <div className="flex md:flex-row flex-col h-full md:mt-0 mt-10">
         <div className="md:flex-[2] md:flex md:items-center justify-center">
           {item.type !== "sound" ? (
