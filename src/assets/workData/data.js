@@ -17,7 +17,7 @@ export const workdata = [
   },
   {
     id: "2",
-    author_name: "嚴慧明（Anna Yim ）",
+    author_name: "嚴慧明（Anna Yim）",
     author_zone: "Kelvin",
     description:
       "慈光堂60周年，經歷18區遍傳，九龍城遍傳和大型嘉年華會，服侍四川留守兒童，參與回家聚集和4C，親墟服侍街坊，近年購堂，每年尋求神心意，興起人回應神，數算恩典實在太多。所以獻上慈光六十，主恩滿溢的藝術字花畫，祝福慈光堂繼續經歷主恩滿溢！",

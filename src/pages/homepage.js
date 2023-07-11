@@ -39,7 +39,6 @@ const textMotion = {
   },
   hover: {
     x: 30,
-    width: 250,
     transition: {
       duration: 0.4,
       type: "tween",
@@ -49,6 +48,7 @@ const textMotion = {
 };
 
 function Homepage() {
+  const isMobile = window.innerWidth < 768;
   const displayCardNum = window.innerWidth > 1000 ? 15 : 10;
   const colNum = window.innerWidth > 1000 ? 9 : 3; //+1
   const rowNum = 4; //+1
@@ -163,23 +163,23 @@ function Homepage() {
                                 box.author_name && setIsModalOpen(!isModalOpen);
                               }}
                             >
-                              <motion.div
+                              {!isMobile && <motion.div
                                 className={`absolute invisible ${
                                   box.author_name
                                     ? "group-hover:visible"
                                     : "group-hover:invisible"
-                                } group-hover:visible z-0 bg-secondary  h-[50px] rounded-xl mt-5 ml-10 py-10 pl-12 drop-shadow-2xl flex justify-start items-center `}
+                                } group-hover:visible z-0 bg-secondary h-[px] rounded-xl mt-5 ml-10 pl-12 pr-6 drop-shadow-2xl flex justify-start items-center `}
                                 variants={textMotion}
                               >
-                                <div className="text-xl ">
-                                  <h2 className=" overflow-hidden  whitespace-nowrap">
+                                <div className=" text-2xl">
+                                  <h2 className=" overflow-hidden whitespace-nowrap">
                                     {getTypeZh(box.type)}
                                   </h2>
-                                  <h2 className="font-bold   overflow-hidden whitespace-nowrap">
+                                  <h2 className="font-bold overflow-hidden whitespace-nowrap">
                                     {box.author_name}
                                   </h2>
                                 </div>
-                              </motion.div>
+                              </motion.div>}
                               <Card
                                 type={box.type}
                                 author_name={box.author_name}
