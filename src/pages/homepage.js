@@ -19,7 +19,7 @@ function Wire(props) {
         <div className="h-scree w-[7px] bg-wire shadow-2xl"></div>
       </div>
 
-      <div className="grid grid-rows-8 absolute gap-5 mt-4 md:mt-24">
+      <div className="grid grid-rows-8 absolute gap-5 my-4 md:my-24">
         {props.children}
       </div>
     </div>
@@ -138,7 +138,7 @@ function Homepage() {
                 <Wire>
                   <div className={`${cols % 2 === 0 ? "mt-12" : ""}`}>
                     {items.map((box, rows) => {
-                      if (cols === 0 && rows === 4) {
+                      if (cols === 0 && rows === 3) {
                         return (
                           <div key={rows} className="h-[100px] w-[100px] mb-3">
                             <Card
