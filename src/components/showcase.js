@@ -14,22 +14,22 @@ function Showcase({ item, setOpen, open }) {
     <div className="bg-secondary w-full h-full md:p-8 p-4 no-scrollbar overflow-scroll relative">
       <button
           onClick={handleModalClose}
-          className="hover:bg-gray-300 rounded-full w-8 h-8 flex justify-center items-center absolute right-8"
+          className="hover:bg-gray-300 rounded-full w-8 h-8 flex justify-center items-center absolute md:right-8 right-4"
         >
           <img src={Close} alt="close" className="w-6 h-6" />
         </button>
-      <div className="flex md:flex-row flex-col h-full md:mt-0 mt-3">
+      <div className="flex md:flex-row flex-col h-full md:mt-0 mt-10">
         <div className="md:flex-[2] md:flex md:items-center">
           {item.type !== "sound" ? (
             <img
               src={source}
               alt="show"
-              className="h-full object-contain"
+              className="md:h-full object-contain"
             />
           ) : <Player item={item} open={open}/>}
         </div>
 
-        <div className="md:flex-1 md:px-6 md:py-10 px-0 py-0 md:mt-0 mt-6 md:flex md:flex-col md:justify-start md:justify-center">
+        <div className="md:flex-1 md:px-6 md:py-10 px-0 pt-0 pb-8 md:mt-0 mt-6 md:flex md:flex-col md:justify-start md:justify-center">
           <div className="flex items-center">
             <img src={Clip} alt="clip" className="w-10"/> {/* TODO: switch type => different clip color */}
             {returnTitle(type)}

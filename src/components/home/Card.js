@@ -38,7 +38,6 @@ const getTypeColour = (type) => {
 };
 
 const Card = ({ type, author_name, photo, icon, iconSize = 30, onClickFn }) => {
-  console.log(iconSize);
   return (
     <motion.div
       className={`container absolute inline-flex justify-center items-start ${
@@ -70,13 +69,13 @@ const Card = ({ type, author_name, photo, icon, iconSize = 30, onClickFn }) => {
       }}
     >
       <div
-        className={`mt-4 w-[80px] h-[80px] ${
+        className={`mt-4 2xl:w-[80px] w-[70px] 2xl:h-[80px] h-[70px] ${
           type === "sound" ? "bg-sound" : "bg-white"
         } rounded-2xl flex justify-center items-center`}
       >
         <>
           <div
-            className={`absolute  w-[80px] h-[80px] rounded-2xl mix-blend-multiply opacity-90 ${getTypeColour(
+            className={`absolute 2xl:w-[80px] w-[70px] 2xl:h-[80px] h-[70px] rounded-2xl mix-blend-multiply opacity-90 ${getTypeColour(
               type
             )}`}
           />

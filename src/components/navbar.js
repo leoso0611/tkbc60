@@ -60,10 +60,10 @@ function Navbar() {
     ) : null;
 
   return (
-    <nav className="bg-primary border-gray-200 h-20 sticky top-0 z-40">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <nav className="bg-primary border-gray-200 md:h-24 h-20 sticky top-0 z-40">
+      <div className="max-w-screen-xl h-full flex flex-wrap items-center justify-between mx-auto p-4">
         <Link to="/">
-          <img src={logo} alt="logo" className="h-12 mr-3" />
+          <img src={logo} alt="logo" className="md:h-16 h-12 mr-3" />
         </Link>
         <button
           type="button"
