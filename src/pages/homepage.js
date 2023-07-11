@@ -19,7 +19,7 @@ function Wire(props) {
         <div className="h-scree w-[7px] bg-wire shadow-2xl"></div>
       </div>
 
-      <div className="grid grid-rows-8 absolute gap-5 my-4 md:my-24">
+      <div className="grid grid-rows-8 absolute gap-5 my-4 2xl:my-24 md:my-12">
         {props.children}
       </div>
     </div>
@@ -53,14 +53,14 @@ function Homepage() {
   const colNum = window.innerWidth > 1000 ? 9 : 3; //+1
   const rowNum = 4; //+1
   const [matrix, setMatrix] = useState(
-    Array.from({ length: 10 }, () => Array.from({ length: 6 }, () => undefined))
+    Array.from({ length: 10 }, () => Array.from({ length: 5 }, () => undefined))
   );
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [openedItem, setOpenedItem] = useState(undefined);
 
   function handleFresh() {
     let temp = Array.from({ length: 10 }, () =>
-      Array.from({ length: 6 }, () => undefined)
+      Array.from({ length: 5 }, () => undefined)
     );
 
     let newCardData = _.shuffle(workdata);
@@ -138,7 +138,7 @@ function Homepage() {
                 <Wire>
                   <div className={`${cols % 2 === 0 ? "mt-12" : ""}`}>
                     {items.map((box, rows) => {
-                      if (cols === 0 && rows === 3) {
+                      if (cols === 0 && rows === 2) {
                         return (
                           <div key={rows} className="h-[100px] w-[100px] mb-3">
                             <Card
@@ -168,11 +168,11 @@ function Homepage() {
                                   box.author_name
                                     ? "group-hover:visible"
                                     : "group-hover:invisible"
-                                } group-hover:visible z-0 bg-secondary h-[px] rounded-xl mt-5 ml-10 pl-12 pr-6 drop-shadow-2xl flex justify-start items-center `}
+                                } group-hover:visible z-0 bg-secondary h-[50px] rounded-xl mt-5 ml-10 pl-10 pr-4 py-8 drop-shadow-2xl flex justify-start items-center `}
                                 variants={textMotion}
                               >
-                                <div className=" text-2xl">
-                                  <h2 className=" overflow-hidden whitespace-nowrap">
+                                <div className="text-base">
+                                  <h2 className="overflow-hidden whitespace-nowrap">
                                     {getTypeZh(box.type)}
                                   </h2>
                                   <h2 className="font-bold overflow-hidden whitespace-nowrap">
