@@ -1,15 +1,15 @@
 export const returnTitle = (type) => {
   switch (type) {
-    case "photo":
-      return "照片作品";
+    case "media":
+      return "照片作品"; // 影視
     case "drawing":
       return "繪畫作品";
     case "calligraphy":
       return "書法作品";
-    case "diy":
-      return "手工作品";
+    case "zothers":
+      return "其他作品"; // 其他
     case "sound":
-      return "音樂作品";
+      return "音樂作品"; 
     default:
       return "";
   }
@@ -17,8 +17,8 @@ export const returnTitle = (type) => {
 
 export const returnFontColor = (type) => {
   switch (type) {
-    case "photo":
-    case "diy":
+    case "media":
+    case "zothers":
     case "sound":
       return "text-white";
     default:
@@ -29,14 +29,14 @@ export const returnFontColor = (type) => {
 export const returnHoverBackgroundColor = (type) => {
   // return ("hover:bg-" + type).toString();
   switch (type) {
-    case "photo":
-      return "hover:bg-photo";
+    case "media":
+      return "hover:bg-media";
     case "drawing":
       return "hover:bg-drawing";
     case "calligraphy":
       return "hover:bg-calligraphy";
-    case "diy":
-      return "hover:bg-diy";
+    case "zothers":
+      return "hover:bg-zothers";
     case "sound":
       return "hover:bg-sound";
     default:

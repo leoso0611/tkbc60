@@ -1,1 +1,1 @@
-export const typeArray = ["sound", "photo", "calligraphy", "diy", "drawing"];
+export const typeArray = ["sound", "media", "calligraphy", "zothers", "drawing"];

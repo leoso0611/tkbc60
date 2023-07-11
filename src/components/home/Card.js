@@ -7,9 +7,9 @@ import { motion } from "framer-motion";
 
 // const colorArray = [
 //   "bg-sound",
-//   "bg-photo",
+//   "bg-media",
 //   "bg-calligraphy",
-//   "bg-diy",
+//   "bg-zothers",
 //   "bg-drawing",
 // ];
 
@@ -19,14 +19,14 @@ const getTypeColour = (type) => {
     case "sound":
       typeColour = "bg-sound";
       break;
-    case "photo":
-      typeColour = "bg-photo";
+    case "media":
+      typeColour = "bg-media";
       break;
     case "calligraphy":
       typeColour = "bg-calligraphy";
       break;
-    case "diy":
-      typeColour = "bg-diy";
+    case "zothers":
+      typeColour = "bg-zothers";
       break;
     case "drawing":
       typeColour = "bg-drawing";
@@ -102,7 +102,7 @@ const Card = ({ type, author_name, photo, icon, iconSize = 30, onClickFn }) => {
 };
 
 Card.propTypes = {
-  type: PropTypes.string.isRequired, // "sound" | "photo" | "calligraphy" | "diy",
+  type: PropTypes.string.isRequired, // "sound" | "media" | "calligraphy" | "zothers",
   author_name: PropTypes.string,
   photo: PropTypes.string,
   icon: PropTypes.string,

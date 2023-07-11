@@ -2,11 +2,11 @@ export const getTypeZh = (type) => {
   switch (type) {
     case "sound":
       return "音樂作品";
-    case "photo":
+    case "media":
       return "照片作品";
     case "calligraphy":
       return "書法作品";
-    case "diy":
+    case "zothers":
       return "手工作品";
     case "drawing":
       return "繪畫作品";
