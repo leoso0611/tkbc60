@@ -45,7 +45,7 @@ function About() {
                 <Carousel
                   theme={{
                     root: {
-                      "base": "relative h-full w-full bg-primary",
+                      base: "relative h-full w-full bg-primary",
                     },
                     scrollContainer: {
                       base: "flex h-full snap-mandatory !overflow-y-hidden overflow-x-scroll scroll-smooth rounded-lg",
@@ -55,6 +55,7 @@ function About() {
                 >
                   {photos.map((item, idx) => (
                     <img
+                      key={idx}
                       alt={`tkcb${idx}`}
                       src={item}
                       className="h-full object-contain"
@@ -64,7 +65,7 @@ function About() {
               </div>
               <div className="w-full pb-4 mt-4 flex flex-row justify-end items-center">
                 <a
-                  href="https://drive.google.com/drive/folders/11Emhan3J-vdUOF_tlsxr8NaWctCqBTPw?usp=sharing"
+                  href="https://photos.app.goo.gl/3yKHJX6RWGZghS1o8"
                   target="_blank"
                   rel="noreferrer"
                 >

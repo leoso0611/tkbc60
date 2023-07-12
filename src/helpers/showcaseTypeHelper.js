@@ -1,3 +1,9 @@
+import MediaClip from "images/icon/media_clip.png";
+import OthersClip from "images/icon/others_clip.png";
+import DrawingClip from "images/icon/drawing_clip.png";
+import CalligraphyClip from "images/icon/calligraphy_clip.png";
+import SoundClip from "images/icon/sound_clip.png";
+
 export const returnTitle = (type) => {
   switch (type) {
     case "media":
@@ -9,7 +15,7 @@ export const returnTitle = (type) => {
     case "zothers":
       return "其他作品"; // 其他
     case "sound":
-      return "音樂作品"; 
+      return "音樂作品";
     default:
       return "";
   }
@@ -43,3 +49,20 @@ export const returnHoverBackgroundColor = (type) => {
       return "";
   }
 };
+
+export const returnColorClip = (type) => {
+  switch (type) {
+    case "media":
+      return MediaClip;
+    case "drawing":
+      return DrawingClip;
+    case "calligraphy":
+      return CalligraphyClip;
+    case "zothers":
+      return OthersClip;
+    case "sound":
+      return SoundClip;
+    default:
+      return "";
+  }
+}

@@ -12,6 +12,7 @@ import { motion } from "framer-motion";
 //   "bg-zothers",
 //   "bg-drawing",
 // ];
+import _ from "lodash";
 
 const getTypeColour = (type) => {
   let typeColour = "";
@@ -37,6 +38,8 @@ const getTypeColour = (type) => {
   return typeColour;
 };
 
+const angle = [336, 348, 372, 384];
+
 const Card = ({ type, author_name, photo, icon, iconSize = 30, onClickFn }) => {
   return (
     <motion.div
@@ -51,17 +54,7 @@ const Card = ({ type, author_name, photo, icon, iconSize = 30, onClickFn }) => {
       }`}
       onClick={() => onClickFn && onClickFn()}
       initial={{ y: -2000 }}
-      animate={{
-        y: 0,
-        rotate:
-          Math.random() < 0.5
-            ? Math.random() < 0.5
-              ? 348
-              : 336
-            : Math.random() < 0.5
-            ? 372
-            : 384,
-      }}
+      animate={{ y: 0, rotate: angle[_.random(0, 3)] }}
       transition={{ type: "spring", duration: 1.5 }}
       whileHover={{
         scale: 1.1,
@@ -73,36 +66,50 @@ const Card = ({ type, author_name, photo, icon, iconSize = 30, onClickFn }) => {
           icon && "bg-secondary"
         } rounded-2xl flex justify-center items-center`}
       >
-        <>
+        {!photo && !author_name && (
           <div
-            className={`absolute 2xl:w-[80px] w-[70px] 2xl:h-[80px] h-[70px] rounded-2xl mix-blend-multiply ${
-              !(type === "sound" && author_name) && "opacity-90"
-            } ${getTypeColour(type)} ${type === "sound" && "z-[-1]"}`}
+            className={`absolute 2xl:w-[80px] w-[70px] 2xl:h-[80px] h-[70px] rounded-2xl mix-blend-multiply opacity-90 ${getTypeColour(
+              type
+            )}`}
           />
-          {photo && type !== "sound" && (
+        )}
+        {photo && type !== "sound" && (
+          <>
             <img
               src={photo ?? ""}
               className="h-full w-full rounded-2xl object-cover"
               alt="img"
             />
-          )}
-        </>
+            <div
+              className={`absolute 2xl:w-[80px] w-[70px] 2xl:h-[80px] h-[70px] rounded-2xl mix-blend-multiply opacity-90 ${getTypeColour(
+                type
+              )}`}
+            />
+          </>
+        )}
 
         {(icon || (type === "sound" && author_name)) && (
-          <img
-            src={icon ?? soundIcon}
-            className={`h-[${iconSize?.toString()}px] w-[${iconSize?.toString()}px] object-cover`}
-            alt="img"
-          />
+          <>
+            <div
+              className={`absolute 2xl:w-[80px] w-[70px] 2xl:h-[80px] h-[70px] rounded-2xl mix-blend-multiply ${
+                type !== "sound" && "opacity-90"
+              } ${getTypeColour(type)} ${type === "sound" && "z-[-1]"}`}
+            />
+            <img
+              src={icon ?? soundIcon}
+              className={`h-[${iconSize?.toString()}px] w-[${iconSize?.toString()}px] object-cover ${icon && "fill-primary"}`}
+              alt="img"
+            />
+          </>
         )}
       </div>
-      <img src={Clip} className="absolute h-[30px]" alt="clip" />
+      <img src={Clip} className="absolute h-[25px] lg:h-[30px]" alt="clip" />
     </motion.div>
   );
 };
 
 Card.propTypes = {
-  type: PropTypes.string.isRequired, // "sound" | "media" | "calligraphy" | "zothers",
+  type: PropTypes.string.isRequired, // "sound" | "media" | "calligraphy" | "others",
   author_name: PropTypes.string,
   photo: PropTypes.string,
   icon: PropTypes.string,
