@@ -65,7 +65,7 @@ function About() {
               </div>
               <div className="w-full pb-4 mt-4 flex flex-row justify-end items-center">
                 <a
-                  href="https://drive.google.com/drive/folders/11Emhan3J-vdUOF_tlsxr8NaWctCqBTPw?usp=sharing"
+                  href="https://photos.app.goo.gl/3yKHJX6RWGZghS1o8"
                   target="_blank"
                   rel="noreferrer"
                 >
