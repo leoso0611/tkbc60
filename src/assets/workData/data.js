@@ -4,6 +4,8 @@ import source3 from "./3.mp3";
 import source4 from "./4.jpeg";
 import source5 from "./5.jpg";
 import source6 from "./6.jpeg";
+import source7 from "./7.jpg";
+import source8 from "./8.jpg";
 
 export const workdata = [
   {
@@ -59,6 +61,24 @@ export const workdata = [
     description:
       "灵感来源于慈光60周年，设计思路是想将•60”字样以特别的样式呈现，就将6字用了竖起母指的手势外形来表达，六十的“＋»读音就用了发光的十字架来呈现，也和慈光的名字做了一个呼应，而十字门框内代表天堂也表达了神对我们的心意，神给我们一道寻求祂的门，希望更多的人能来到祂面前寻求祂，就像慈光 60年来带着真诚的心常常敬畏求问神，带着神的美意祝福他人",
     source: source6,
+    type: "zothers",
+  },
+  {
+    id: "7",
+    author_name: "陳國賢",
+    author_zone: "樂群區域",
+    description:
+      "耶穌穿起一件彩色衣裳，很開心的樣子",
+    source: source7,
+    type: "zothers",
+  },
+  {
+    id: "8",
+    author_name: "胡靜文",
+    author_zone: "樂群區域",
+    description:
+      "耶穌在教會，教會為主發光",
+    source: source8,
     type: "drawing",
   },
 ];
