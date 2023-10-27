@@ -6,6 +6,7 @@ import source5 from "./5.jpg";
 import source6 from "./6.jpeg";
 import source7 from "./7.jpg";
 import source8 from "./8.jpg";
+import source9 from "./9.jpg";
 
 export const workdata = [
   {
@@ -31,10 +32,10 @@ export const workdata = [
     author_name: "麥錦華",
     author_zone: "陳思雅",
     description:
-      "1,慈光這個大家庭，無分彼此，遇風浪時仍然堅恃倚靠主的群體。\n2,有著重要的DNA（遍傳）加（集體聆聽）\n3,作鹽作光，突破自已，承傅使命，願意成為傳福音的鴿子。\n4,成為戰士，為多方禱告守望這個城市。",
+      "1,慈光這個大家庭，無分彼此，遇風浪時仍然堅恃倚靠主的群體。;2,有著重要的DNA（遍傳）加（集體聆聽）;3,作鹽作光，突破自已，承傅使命，願意成為傳福音的鴿子。;4,成為戰士，為多方禱告守望這個城市。",
     source: source3,
     type: "sound",
-    name: "作鹽作光"
+    name: "作鹽作光",
   },
   {
     id: "4",
@@ -67,8 +68,7 @@ export const workdata = [
     id: "7",
     author_name: "陳國賢",
     author_zone: "樂群區域",
-    description:
-      "耶穌穿起一件彩色衣裳，很開心的樣子",
+    description: "耶穌穿起一件彩色衣裳，很開心的樣子",
     source: source7,
     type: "zothers",
   },
@@ -76,9 +76,17 @@ export const workdata = [
     id: "8",
     author_name: "胡靜文",
     author_zone: "樂群區域",
-    description:
-      "耶穌在教會，教會為主發光",
+    description: "耶穌在教會，教會為主發光",
     source: source8,
     type: "drawing",
+  },
+  {
+    id: "9",
+    author_name: "劉卓繞",
+    author_zone: "深水埗家成區",
+    description:
+      "祝賀慈光堂60週年;/br;你是沙崙的玫瑰花;/br;慈繩愛索早牽引;光照世間澤社群;甲子恩情蒙主愛;捨身救贖傳救恩;繼住開來承主命;跨步向前夢變真;/br;賀慈光堂六十週年;劉卓繞上;",
+    source: source9,
+    type: "zothers",
   },
 ];

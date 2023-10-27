@@ -50,9 +50,13 @@ function Showcase({ item, setOpen, open }) {
           <div className="mt-4 font-bold text-base">
             作品概念
             <div className="font-normal mt-4">
-              {description.split("\n").map((str, idx) => (
-                <div key={idx}>{str}</div>
-              ))}
+              {description.split(";").map((str, idx) => {
+                if (str === "/br") {
+                  return <br key={idx} />;
+                } else {
+                  return <div key={idx}>{str}</div>;
+                }
+              })}
             </div>
           </div>
         </div>
